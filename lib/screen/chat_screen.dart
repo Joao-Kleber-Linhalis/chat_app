@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:chat_app/components/messages.dart';
 import 'package:chat_app/components/new_message.dart';
+import 'package:chat_app/core/models/chat_notification.dart';
 import 'package:chat_app/core/services/auth/auth_service.dart';
 import 'package:chat_app/core/services/notification/chat_notification_service.dart';
 import 'package:chat_app/screen/notification_screen.dart';
@@ -53,11 +56,9 @@ class ChatScreen extends StatelessWidget {
               IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (ctx) {
-                        return NotificationScreen();
-                      },
-                    ),
+                    MaterialPageRoute(builder: (ctx) {
+                      return NotificationScreen();
+                    }),
                   );
                 },
                 icon: Icon(Icons.notifications),
@@ -89,6 +90,16 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.add),
+      //   onPressed: () {
+      //     Provider.of<ChatNotificationService>(context, listen: false)
+      //         .add(ChatNotification(
+      //       body: Random().nextDouble().toString(),
+      //       title: 'Notificação teste',
+      //     ));
+      //   },
+      // ),
     );
   }
 }
