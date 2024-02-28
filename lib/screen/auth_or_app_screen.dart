@@ -1,11 +1,13 @@
 import 'package:chat_app/core/models/chat_user.dart';
 import 'package:chat_app/core/services/auth/auth_service.dart';
+import 'package:chat_app/core/services/notification/chat_notification_service.dart';
 import 'package:chat_app/screen/auth_screen.dart';
 import 'package:chat_app/screen/chat_screen.dart';
 import 'package:chat_app/screen/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:chat_app/firebase_options.dart';
+import 'package:provider/provider.dart';
 
 class AuthOrAppScreen extends StatelessWidget {
   const AuthOrAppScreen({super.key});
@@ -14,6 +16,7 @@ class AuthOrAppScreen extends StatelessWidget {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    await Provider.of<ChatNotificationService>(context,listen: false).init();
   }
 
   @override
