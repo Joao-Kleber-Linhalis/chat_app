@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:chat_app/core/models/chat_user.dart';
 import 'package:chat_app/core/services/auth/auth_firebase_service.dart';
-import 'package:chat_app/core/services/auth/auth_mock_service.dart';
 
 abstract class AuthService {
   ChatUser? get currentUser; //Pegar usuario atual
